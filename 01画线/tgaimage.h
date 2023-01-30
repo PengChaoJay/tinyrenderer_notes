@@ -3,6 +3,7 @@
 
 #include <fstream>
 
+//字节对齐，对齐方式
 #pragma pack(push,1)
 struct TGA_Header {
 	char idlength;
@@ -22,6 +23,7 @@ struct TGA_Header {
 
 
 
+// 颜色类型
 struct TGAColor {
 	union {
 		struct {
@@ -60,6 +62,8 @@ struct TGAColor {
 };
 
 
+
+//生成的图片
 class TGAImage {
 protected:
 	unsigned char* data;
@@ -77,8 +81,10 @@ public:
 	TGAImage();
 	TGAImage(int w, int h, int bpp);
 	TGAImage(const TGAImage &img);
+	//读写文件
 	bool read_tga_file(const char *filename);
 	bool write_tga_file(const char *filename, bool rle=true);
+
 	bool flip_horizontally();
 	bool flip_vertically();
 	bool scale(int w, int h);
