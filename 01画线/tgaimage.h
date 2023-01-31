@@ -32,6 +32,7 @@ struct TGAColor {
 		unsigned char raw[4];
 		unsigned int val;
 	};
+	
 	int bytespp;
 
 	TGAColor() : val(0), bytespp(1) {
